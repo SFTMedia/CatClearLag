@@ -188,6 +188,7 @@ public class CatClearLag {
         ArrayList<Chunk> failedChunks = new ArrayList<>();
         while (last_failed_count!=failedChunks.size()){
             failedChunks=new ArrayList();
+            last_failed_count=failedChunks.size();
             System.out.println("[CatClearLag] UnloadChunks: New iteration.");
             for(Chunk chunk : chunks) {
                 if(!chunk.unloadChunk()){
@@ -202,7 +203,6 @@ public class CatClearLag {
                 break;
             }
             chunks=new ArrayList<>(failedChunks);
-            last_failed_count=failedChunks.size();
         }
         for (Chunk chunk: failedChunks){
             System.out.println("[CatClearLag] UnloadChunks: Chunk "+chunk.getWorld().getName()+" "+chunk.getPosition().getX()+","+chunk.getPosition().getY()+","+chunk.getPosition().getZ()+" failed to unload");
