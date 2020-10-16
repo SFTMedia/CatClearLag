@@ -187,8 +187,8 @@ public class CatClearLag {
         int i=0;
         ArrayList<Chunk> failedChunks = new ArrayList<>();
         while (last_failed_count!=failedChunks.size()){
-            failedChunks=new ArrayList();
             last_failed_count=failedChunks.size();
+            failedChunks=new ArrayList();
             System.out.println("[CatClearLag] UnloadChunks: New iteration.");
             for(Chunk chunk : chunks) {
                 if(!chunk.unloadChunk()){
